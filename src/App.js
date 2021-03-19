@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { StateProvider } from '~/context/StateContext';
 import { useFonts } from 'expo-font';
 
 import {
@@ -40,9 +41,11 @@ export default () => {
   }
 
   return (
-    <NavigationContainer>
-      <Routes />
-      <StatusBar style="light" backgroundColor="#000" />
-    </NavigationContainer>
+    <StateProvider>
+      <NavigationContainer>
+        <Routes />
+        <StatusBar style="light" backgroundColor="#000" />
+      </NavigationContainer>
+    </StateProvider>
   );
 };
