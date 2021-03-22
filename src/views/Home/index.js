@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container, Title } from './styles';
+import * as Style from './styles';
 
 const Home = () => {
   return (
-    <Container>
-      <Title>Hello Canadá</Title>
-    </Container>
+    <Style.Container>
+      <Style.Title>Hello Mundo</Style.Title>
+    </Style.Container>
   );
 };
 
