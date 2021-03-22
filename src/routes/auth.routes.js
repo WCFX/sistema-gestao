@@ -9,14 +9,15 @@ const AuthRoutes = () => {
   return (
     <Navigator initialRouteName="Home">
       <Screen
-        options={{
-          headerShown: false,
-        }}
-        laranja
+        options={{ headerShown: false }}
         name="Preload"
         component={View.Preload}
       />
-      <Screen laranja name="Home" component={View.Home} />
+      <Screen
+        options={{ headerShown: false }}
+        name="Home"
+        component={View.Home}
+      />
     </Navigator>
   );
 };

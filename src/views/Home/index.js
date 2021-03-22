@@ -1,10 +1,14 @@
 import React from 'react';
 import * as Style from './styles';
 
+import { LoginSvg } from '~/assets/svg';
+
 const Home = () => {
   return (
     <Style.Container>
-      <Style.Title>Hello Mundo</Style.Title>
+      <Style.ContainerImg>
+        <LoginSvg height="300" width="300" />
+      </Style.ContainerImg>
     </Style.Container>
   );
 };

@@ -9,9 +9,11 @@ export const Container = styled(LinearGradient).attrs({
   end: { x: 1, y: 1 },
 })`
   flex: 1;
-  justify-content: center;
   align-items: center;
   background-color: #201a30;
+`;
+export const ContainerImg = styled.View`
+  margin-top: 50px;
 `;
 
 export const Title = styled.Text`
