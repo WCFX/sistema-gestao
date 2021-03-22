@@ -2,14 +2,18 @@ import React from 'react';
 import * as Style from './styles';
 import { LoginSvg } from '~/assets/svg';
 
+import { Form } from '~/components';
+
 const Home = () => {
   return (
     <Style.Container>
       <Style.ContainerImg>
-        <LoginSvg resizeMode="contain" height="400" width="400" />
+        <LoginSvg height="350" width="350" />
       </Style.ContainerImg>
 
-      <Style.ContainerForm></Style.ContainerForm>
+      <Style.ContainerForm>
+        <Form />
+      </Style.ContainerForm>
     </Style.Container>
   );
 };
