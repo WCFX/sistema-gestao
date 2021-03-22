@@ -1,4 +1,6 @@
 import React from 'react';
+import { KeyboardAvoidingView } from 'react-native';
+
 import * as Style from './styles';
 import { LoginSvg } from '~/assets/svg';
 

@@ -11,7 +11,7 @@ export default () => {
     <StateProvider>
       <NavigationContainer>
         <Routes />
-        <StatusBar style="light" backgroundColor="#000" />
+        <StatusBar style="light" backgroundColor="#221c35" />
       </NavigationContainer>
     </StateProvider>
   );

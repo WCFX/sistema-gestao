@@ -13,11 +13,10 @@ export const Container = styled(LinearGradient).attrs({
   background-color: #201a30;
 `;
 export const ContainerImg = styled.View`
-  margin-top: 50px;
+  margin-top: 20px;
 `;
 export const ContainerForm = styled.View`
   width: 90%;
-  flex: 1;
 `;
 
 export const Title = styled.Text`
