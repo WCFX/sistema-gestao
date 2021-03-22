@@ -15,6 +15,7 @@ export const Container = styled(LinearGradient).attrs({
 export const ContainerImg = styled.View`
   margin-top: 50px;
 `;
+export const ContainerForm = styled.View``;
 
 export const Title = styled.Text`
   font-size: 18px;
