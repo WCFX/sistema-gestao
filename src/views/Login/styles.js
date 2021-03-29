@@ -8,7 +8,7 @@ export const Container = styled.KeyboardAvoidingView`
   width: 100%;
 `;
 export const ContainerImg = styled.View`
-  margin-top: -100px;
+  margin-top: -50px;
 `;
 
 export const Title = styled.Text`
@@ -49,6 +49,7 @@ export const LoginButton = styled.TouchableOpacity`
   border-radius: 50px;
   background-color: #38304c;
   justify-content: center;
+  margin-bottom: 10px;
 
   elevation: 4;
 `;

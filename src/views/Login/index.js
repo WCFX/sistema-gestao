@@ -66,9 +66,9 @@ const Login = () => {
           <Style.LoginButton>
             <Style.LoginButtonText>LOGIN</Style.LoginButtonText>
           </Style.LoginButton>
-          <Style.ForgotPass>
-            <Style.ForgotPassText>Forgot Password</Style.ForgotPassText>
-          </Style.ForgotPass>
+          <Style.LoginButton>
+            <Style.LoginButtonText>Cadastre-se</Style.LoginButtonText>
+          </Style.LoginButton>
         </Style.Footer>
       </Style.ContainerForm>
     </Style.Container>
