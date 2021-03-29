@@ -21,6 +21,7 @@ const AuthRoutes = () => {
       />
       <Screen
         options={{
+          // headerShow: false,
           headerRight: () => <LogoutButton />,
         }}
         name="Home"

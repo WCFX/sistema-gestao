@@ -1,11 +1,18 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import api from '~/services/api';
+import { useStateValue } from '~/context/StateContext';
+
+import * as Style from './styles';
 
 const Register = () => {
+  const [cpf, setCpf] = useState('');
+  const [password, setPassword] = useState('');
+  const [context, dispatch] = useStateValue();
+
   return (
-    <View>
-      <Text>Bem vindo ao registro</Text>
-    </View>
+    <Style.Container>
+      <Style.Title>Bem vindo ao cadastre-se</Style.Title>
+    </Style.Container>
   );
 };
 

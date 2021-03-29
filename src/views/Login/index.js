@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import * as Style from './styles';
 import { useStateValue } from '~/context/StateContext';
-import AnimatedInput from 'react-native-animated-input';
+import { FontAwesome } from '@expo/vector-icons';
+import { Form } from '~/components';
 import { Platform } from 'react-native';
 
 import api from '~/services/api';
+
+import { showMessage, hideMessage } from 'react-native-flash-message';
 
 import { LoginSvg } from '~/assets/svg';
 
@@ -41,7 +44,10 @@ const Login = () => {
         alert(result.error);
       }
     } else {
-      alert('Preencha os campos');
+      showMessage({
+        message: 'Coloque seus dados para acessar o painel',
+        type: 'danger',
+      });
     }
   };
   const handleRegisterButton = () => {
@@ -49,67 +55,45 @@ const Login = () => {
   };
 
   return (
-    <Style.Container behavior={Platform.OS == 'ios' ? 'padding' : 'padding'}>
+    <Style.Container behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}>
       <Style.ContainerImg>
         <LoginSvg height="350" width="350" />
       </Style.ContainerImg>
-
-      <Style.ContainerForm>
+      <Style.Block>
         <Style.Title>Login</Style.Title>
-        <Style.Description>Please sign in to continue</Style.Description>
-        <Style.Content>
-          <AnimatedInput
-            placeholder="Email"
-            errorText="Error"
-            value={cpf}
-            secur
-            onChangeText={(t) => setCpf(t)}
-            styleLabel={{
-              fontFamily: 'Poppins_600SemiBold',
-              color: '#ffb9b9',
-            }}
-            styleInput={{
-              color: '#eee',
-              fontFamily: 'Archivo_400Regular',
-            }}
-            styleBodyContent={{
-              paddingLeft: 20,
-              borderBottomWidth: 1.5,
-            }}
-          />
-        </Style.Content>
+        <Style.Description>
+          Coloque seus dados para entrar no painel
+        </Style.Description>
+      </Style.Block>
 
-        <Style.Content>
-          <AnimatedInput
-            placeholder="Password"
-            errorText="Error"
-            secureTextEntry
+      <Style.FormContainer>
+        <Style.Input
+          value={cpf}
+          onChangeText={(t) => setCpf(t)}
+          placeholder="CPF"
+          style={{ width: '100%' }}
+        />
+        <Style.Blocks>
+          <Style.Input
             value={password}
             onChangeText={(t) => setPassword(t)}
-            styleLabel={{
-              fontFamily: 'Poppins_600SemiBold',
-              color: '#ffb9b9',
-            }}
-            styleInput={{
-              color: '#eee',
-              fontFamily: 'Archivo_400Regular',
-            }}
-            styleBodyContent={{
-              paddingLeft: 20,
-              borderBottomWidth: 1.5,
-            }}
+            secureTextEntry
+            placeholder="Senha"
+            style={{ width: '85%' }}
           />
-        </Style.Content>
+          <Style.VisibilityButton>
+            <FontAwesome name="eye" size={24} color="#ccc" />
+            {/* <FontAwesome name="eye-off" size={24} color="black" /> */}
+          </Style.VisibilityButton>
+        </Style.Blocks>
+      </Style.FormContainer>
 
-        <Style.Footer>
-          <Style.LoginButton onPress={handleLoginButton}>
-            <Style.LoginButtonText>LOGIN</Style.LoginButtonText>
-          </Style.LoginButton>
-          <Style.LoginButton onPress={handleRegisterButton}>
-            <Style.LoginButtonText>Cadastre-se</Style.LoginButtonText>
-          </Style.LoginButton>
-        </Style.Footer>
-      </Style.ContainerForm>
+      <Style.LoginButton onPress={handleLoginButton}>
+        <Style.LoginButtonText>LOGIN</Style.LoginButtonText>
+      </Style.LoginButton>
+      <Style.LoginButton onPress={handleRegisterButton}>
+        <Style.LoginButtonText>Cadastre-se</Style.LoginButtonText>
+      </Style.LoginButton>
     </Style.Container>
   );
 };
