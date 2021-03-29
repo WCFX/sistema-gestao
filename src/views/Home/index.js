@@ -1,12 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-// import { Container } from './styles';
+import api from '~/services/api';
+import { useNavigation } from '@react-navigation/native';
+import * as Style from './styles';
+import { Modal } from '~/components';
 
 const Home = () => {
+  const navigation = useNavigation();
+
   return (
-    <View>
-      <Text>Bem vindo a Home</Text>
-    </View>
+    <Style.Container>
+      <Style.Title>Hello world</Style.Title>
+    </Style.Container>
   );
 };
 

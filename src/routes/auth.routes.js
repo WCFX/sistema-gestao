@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { LogoutButton } from '~/components';
 
 import * as View from '~/views';
 
@@ -18,7 +19,13 @@ const AuthRoutes = () => {
         name="Login"
         component={View.Login}
       />
-      <Screen name="Home" component={View.Home} />
+      <Screen
+        options={{
+          headerRight: () => <LogoutButton />,
+        }}
+        name="Home"
+        component={View.Home}
+      />
       <Screen name="Register" component={View.Register} />
     </Navigator>
   );

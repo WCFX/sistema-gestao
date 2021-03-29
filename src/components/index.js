@@ -1,2 +1,2 @@
-export { default as Form } from './Form';
-export { default as ButtonGreen } from './ButtonGreen';
+export { default as LogoutButton } from './LogoutButton';
+// export { default as Modal } from './Modal';
