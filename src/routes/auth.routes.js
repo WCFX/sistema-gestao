@@ -7,7 +7,7 @@ const { Navigator, Screen } = createStackNavigator();
 
 const AuthRoutes = () => {
   return (
-    <Navigator initialRouteName="Login">
+    <Navigator initialRouteName="Preload">
       <Screen
         options={{ headerShown: false }}
         name="Preload"
@@ -18,11 +18,7 @@ const AuthRoutes = () => {
         name="Login"
         component={View.Login}
       />
-      <Screen
-        // options={{ headerShown: false }}
-        name="Home"
-        component={View.Home}
-      />
+      <Screen name="Home" component={View.Home} />
     </Navigator>
   );
 };
