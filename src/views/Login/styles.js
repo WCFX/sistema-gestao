@@ -46,12 +46,6 @@ export const LoginButtonText = styled.Text`
   color: #0df5e3;
   font-size: 22px;
 `;
-export const ForgotPass = styled.TouchableOpacity`
-  padding: 20px;
-`;
-export const ForgotPassText = styled.Text`
-  color: #0df5e3;
-`;
 
 // FORM
 
@@ -74,6 +68,7 @@ export const Input = styled.TextInput.attrs({
   elevation: 3;
   border: 1px solid #151515;
   border-radius: 5px;
+  font-size: 18px;
   /* padding: 10px 0; */
   padding: 10px;
   width: 90%;

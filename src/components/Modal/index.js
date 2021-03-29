@@ -92,19 +92,11 @@ const styles = StyleSheet.create({
     shadowRadius: 5.84,
     elevation: 9,
   },
-  openButton: {
-    backgroundColor: '#F194FF',
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: '#221c35',
-    padding: 10,
-    elevation: 2,
-    marginHorizontal: 10,
-  },
   textStyle: {
     fontWeight: 'bold',
+    fontFamily: 'Roboto_400Regular',
     textAlign: 'center',
-    color: '#222',
+    color: '#ccc',
   },
   modalText: {
     marginBottom: 15,

@@ -35,9 +35,9 @@ export default () => {
         }}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+          <View blurRadius={90} style={styles.modalView}>
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: '#fc0339' }}
+              style={{ ...styles.openButton, backgroundColor: '#e7396e' }}
               onPress={handleLogoutButton}
             >
               <Text style={styles.textStyle}>Deseja Sair ?</Text>
@@ -46,13 +46,15 @@ export default () => {
             <TouchableHighlight
               style={{
                 ...styles.openButton,
-                backgroundColor: '#0df5e3',
+                backgroundColor: '#36bde2',
               }}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
             >
-              <Text style={styles.textStyle}>Ops! Me enganei</Text>
+              <Text style={{ ...styles.textStyle, color: '#fff' }}>
+                Ops! Me enganei
+              </Text>
             </TouchableHighlight>
           </View>
         </View>
@@ -79,8 +81,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: 'white',
-    borderRadius: 20,
+    backgroundColor: '#2a2835',
+    borderRadius: 14,
     width: 300,
     height: 150,
     marginTop: 100,
@@ -95,12 +97,9 @@ const styles = StyleSheet.create({
     elevation: 9,
   },
   openButton: {
-    backgroundColor: '#F194FF',
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: '#221c35',
+    borderRadius: 6,
     padding: 10,
-    elevation: 2,
+    elevation: 7,
     marginHorizontal: 10,
   },
   textStyle: {
@@ -111,5 +110,6 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
+    fontFamily: 'Poppins_400Regular',
   },
 });
