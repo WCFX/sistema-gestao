@@ -7,7 +7,7 @@ const { Navigator, Screen } = createStackNavigator();
 
 const AuthRoutes = () => {
   return (
-    <Navigator initialRouteName="Preload">
+    <Navigator initialRouteName="Login">
       <Screen
         options={{ headerShown: false }}
         name="Preload"

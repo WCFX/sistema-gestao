@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const baseUrl = 'https://api.b7web.com.br/devcond/api';
 
 const request = async (method, endpoint, params, token = null) => {
-  method: method.toLowerCase();
+  method = method.toLowerCase();
   let fullUrl = `${baseUrl}${endpoint}`;
   let body = null;
 
