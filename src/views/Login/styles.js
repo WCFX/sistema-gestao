@@ -14,13 +14,13 @@ export const ContainerImg = styled.View`
 export const Title = styled.Text`
   margin-left: 20px;
   font-family: Poppins_600SemiBold;
-  font-size: 28px;
+  font-size: 24px;
   color: #ffb9b9;
 `;
 export const Description = styled.Text`
   margin-left: 20px;
   font-family: Poppins_400Regular;
-  font-size: 18px;
+  font-size: 14px;
   color: #555;
   padding-bottom: 20px;
 `;
@@ -35,6 +35,7 @@ export const Content = styled.View`
   align-self: center;
   margin: 5px 0;
   width: 80%;
+  height: 60px;
   elevation: 6;
 `;
 

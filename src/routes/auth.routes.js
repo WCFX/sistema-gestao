@@ -19,6 +19,7 @@ const AuthRoutes = () => {
         component={View.Login}
       />
       <Screen name="Home" component={View.Home} />
+      <Screen name="Register" component={View.Register} />
     </Navigator>
   );
 };

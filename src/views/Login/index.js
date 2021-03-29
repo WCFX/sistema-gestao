@@ -1,13 +1,52 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import * as Style from './styles';
+import { useStateValue } from '~/context/StateContext';
 import AnimatedInput from 'react-native-animated-input';
 import { Platform } from 'react-native';
+
+import api from '~/services/api';
 
 import { LoginSvg } from '~/assets/svg';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const navigation = useNavigation();
+
+  const [cpf, setCpf] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [context, dispatch] = useStateValue();
+
+  const handleLoginButton = async () => {
+    if (cpf && password) {
+      let result = await api.login(cpf, password);
+      if (result.error === '') {
+        dispatch({
+          type: 'SET_TOKEN',
+          payload: {
+            token: result.token,
+          },
+        });
+        dispatch({
+          type: 'SET_USER',
+          payload: {
+            user: result.user,
+          },
+        });
+        navigation.reset({
+          index: 1,
+          routes: [{ name: 'Home' }],
+        });
+      } else {
+        alert(result.error);
+      }
+    } else {
+      alert('Preencha os campos');
+    }
+  };
+  const handleRegisterButton = () => {
+    navigation.navigate('Register');
+  };
 
   return (
     <Style.Container behavior={Platform.OS == 'ios' ? 'padding' : 'padding'}>
@@ -22,9 +61,9 @@ const Login = () => {
           <AnimatedInput
             placeholder="Email"
             errorText="Error"
-            value={email}
+            value={cpf}
             secur
-            onChangeText={(t) => setEmail(t)}
+            onChangeText={(t) => setCpf(t)}
             styleLabel={{
               fontFamily: 'Poppins_600SemiBold',
               color: '#ffb9b9',
@@ -45,8 +84,8 @@ const Login = () => {
             placeholder="Password"
             errorText="Error"
             secureTextEntry
-            value={pass}
-            onChangeText={(t) => setPass(t)}
+            value={password}
+            onChangeText={(t) => setPassword(t)}
             styleLabel={{
               fontFamily: 'Poppins_600SemiBold',
               color: '#ffb9b9',
@@ -63,10 +102,10 @@ const Login = () => {
         </Style.Content>
 
         <Style.Footer>
-          <Style.LoginButton>
+          <Style.LoginButton onPress={handleLoginButton}>
             <Style.LoginButtonText>LOGIN</Style.LoginButtonText>
           </Style.LoginButton>
-          <Style.LoginButton>
+          <Style.LoginButton onPress={handleRegisterButton}>
             <Style.LoginButtonText>Cadastre-se</Style.LoginButtonText>
           </Style.LoginButton>
         </Style.Footer>
