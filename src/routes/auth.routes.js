@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LogoutButton } from '~/components';
+import Colors from '~/colors';
 
 import * as View from '~/views';
 
@@ -21,13 +22,26 @@ const AuthRoutes = () => {
       />
       <Screen
         options={{
-          // headerShow: false,
+          headerTitle: 'Olá, tudo bem? ✌ ',
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#a9a8f6',
+            elevation: 1,
+          },
           headerRight: () => <LogoutButton />,
         }}
         name="Home"
         component={View.Home}
       />
-      <Screen name="Register" component={View.Register} />
+      <Screen
+        options={{
+          title: 'Crie sua conta',
+          headerTitleAlign: 'center',
+          headerTintColor: `${Colors.darkPink}`,
+        }}
+        name="Register"
+        component={View.Register}
+      />
     </Navigator>
   );
 };

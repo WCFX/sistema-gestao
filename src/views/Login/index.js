@@ -50,6 +50,12 @@ const Login = () => {
       showMessage({
         message: 'Coloque seus dados para acessar o painel',
         type: 'danger',
+        titleStyle: {
+          textAlign: 'center',
+        },
+        textStyle: {
+          textAlign: 'center',
+        },
       });
     }
   };
@@ -89,7 +95,7 @@ const Login = () => {
             {visible ? (
               <FontAwesome name="eye" size={24} color="#ccc" />
             ) : (
-              <FontAwesome name="eye-slash" size={24} color="#ccc" />
+              <FontAwesome name="eye-slash" size={24} color="#f5334a" />
             )}
           </Style.VisibilityButton>
         </Style.Blocks>

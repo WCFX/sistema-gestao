@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LottieView from 'lottie-react-native';
 import {
   Alert,
   Modal,
@@ -7,6 +8,8 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+
+import { SallySvg } from '~/assets/svg';
 
 import api from '~/services/api';
 import { SimpleLineIcons } from '@expo/vector-icons';
@@ -26,21 +29,16 @@ export default () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-        }}
-      >
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <View style={styles.centeredView}>
           <View blurRadius={90} style={styles.modalView}>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#e7396e' }}
               onPress={handleLogoutButton}
             >
-              <Text style={styles.textStyle}>Deseja Sair ?</Text>
+              <Text style={{ ...styles.textStyle, color: '#333' }}>
+                Deseja Sair ?
+              </Text>
             </TouchableHighlight>
 
             <TouchableHighlight
@@ -57,6 +55,10 @@ export default () => {
               </Text>
             </TouchableHighlight>
           </View>
+        </View>
+        <View style={{ backgroundColor: '#a9a8f6' }}>
+          <SallySvg height="400" width="400" />
+          <View style={{ marginBottom: 500 }} />
         </View>
       </Modal>
 

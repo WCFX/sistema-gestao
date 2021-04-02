@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
+import Colors from '~/colors';
 
 export const Container = styled.KeyboardAvoidingView`
   flex: 1;
   align-items: center;
-  justify-content: center;
-  background-color: #221c35;
+  justify-content: flex-start;
+  background-color: ${Colors.purple1};
   width: 100%;
 `;
 export const ContainerImg = styled.View`
@@ -14,20 +15,20 @@ export const ContainerImg = styled.View`
 
 export const Block = styled.View`
   width: 100%;
-  margin-top: -50px;
+  margin-top: 10px;
   align-self: flex-start;
 `;
 export const Title = styled.Text`
   margin-left: 20px;
-  font-family: Poppins_600SemiBold;
+  font-family: Poppins_700Bold;
   font-size: 28px;
-  color: #ffb9b9;
+  color: ${Colors.blue5};
 `;
 export const Description = styled.Text`
   margin-left: 20px;
   font-family: Poppins_400Regular;
   font-size: 14px;
-  color: #555;
+  color: ${Colors.darkGrey};
   padding-bottom: 20px;
 `;
 
@@ -36,14 +37,14 @@ export const LoginButton = styled.TouchableOpacity`
   width: 70%;
   margin: 10px;
   border-radius: 10px;
-  background-color: #38304c;
+  background-color: ${Colors.blue1};
   justify-content: center;
   elevation: 4;
 `;
 export const LoginButtonText = styled.Text`
   align-self: center;
-  font-family: Nunito_700Bold;
-  color: #0df5e3;
+  font-family: Poppins_700Bold;
+  color: ${Colors.blue5};
   font-size: 22px;
 `;
 
@@ -63,7 +64,7 @@ export const Blocks = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs({
-  placeholderTextColor: '#444',
+  placeholderTextColor: `${Colors.blue6}`,
 })`
   elevation: 3;
   border: 1px solid #151515;
@@ -79,12 +80,8 @@ export const Input = styled.TextInput.attrs({
 
 export const VisibilityButton = styled.TouchableHighlight`
   padding: 14px;
-  background-color: #111;
+  background-color: ${Colors.black};
   position: absolute;
   right: 0;
-
-  /* margin-right: -15px; */
   border-radius: 8px;
 `;
-
-// ACABOU O FORM

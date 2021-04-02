@@ -1,0 +1,17 @@
+export default {
+  pink: '#ffb9b9',
+  darkPink: '#f09797',
+  acquablue: '#0df5e3',
+  blue1: '#423c6c',
+  blue2: '#4a47a2',
+  blue3: '#709faf',
+  blue4: '#8bc5d1',
+  blue5: '#a9a8f6',
+  blue6: 'rgba(168, 196, 235, 0.2)',
+  grey: '#ccc',
+  darkGrey: '#555',
+  purple1: '#221c35',
+  purple2: '#8962ea',
+  black: '#151515',
+  red: '#f5334a',
+};
