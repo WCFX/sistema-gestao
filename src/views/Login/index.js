@@ -3,7 +3,6 @@ import { useNavigation } from '@react-navigation/native';
 import * as Style from './styles';
 import { useStateValue } from '~/context/StateContext';
 import { FontAwesome } from '@expo/vector-icons';
-import { Form } from '~/components';
 import { Platform } from 'react-native';
 
 import api from '~/services/api';
@@ -17,8 +16,12 @@ const Login = () => {
 
   const [cpf, setCpf] = useState('');
   const [password, setPassword] = useState('');
-
+  const [visible, setVisible] = useState(true);
   const [context, dispatch] = useStateValue();
+
+  const handleVisibility = () => {
+    setVisible(!visible);
+  };
 
   const handleLoginButton = async () => {
     if (cpf && password) {
@@ -47,6 +50,12 @@ const Login = () => {
       showMessage({
         message: 'Coloque seus dados para acessar o painel',
         type: 'danger',
+        titleStyle: {
+          textAlign: 'center',
+        },
+        textStyle: {
+          textAlign: 'center',
+        },
       });
     }
   };
@@ -72,18 +81,22 @@ const Login = () => {
           onChangeText={(t) => setCpf(t)}
           placeholder="CPF"
           style={{ width: '100%' }}
+          keyboardType="numeric"
         />
         <Style.Blocks>
           <Style.Input
             value={password}
             onChangeText={(t) => setPassword(t)}
-            secureTextEntry
+            secureTextEntry={visible}
             placeholder="Senha"
             style={{ width: '85%' }}
           />
-          <Style.VisibilityButton>
-            <FontAwesome name="eye" size={24} color="#ccc" />
-            {/* <FontAwesome name="eye-off" size={24} color="black" /> */}
+          <Style.VisibilityButton onPress={handleVisibility}>
+            {visible ? (
+              <FontAwesome name="eye" size={24} color="#ccc" />
+            ) : (
+              <FontAwesome name="eye-slash" size={24} color="#f5334a" />
+            )}
           </Style.VisibilityButton>
         </Style.Blocks>
       </Style.FormContainer>

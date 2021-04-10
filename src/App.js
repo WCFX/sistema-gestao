@@ -5,6 +5,8 @@ import FlashMessage from 'react-native-flash-message';
 import { NavigationContainer } from '@react-navigation/native';
 import { StateProvider } from '~/context/StateContext';
 
+import Colors from './colors';
+
 import Routes from './routes';
 
 export default () => {
@@ -12,7 +14,7 @@ export default () => {
     <StateProvider>
       <NavigationContainer>
         <Routes />
-        <StatusBar style="light" backgroundColor="#221c35" />
+        <StatusBar style="light" backgroundColor={`${Colors.purple1}`} />
         <FlashMessage position="center" />
       </NavigationContainer>
     </StateProvider>

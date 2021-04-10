@@ -52,4 +52,14 @@ export default {
     await AsyncStorage.removeItem('token');
     return json;
   },
+  register: async (name, email, cpf, password, password_confirm) => {
+    let json = await request('post', '/auth/register', {
+      name,
+      email,
+      cpf,
+      password,
+      password_confirm,
+    });
+    return json;
+  },
 };
