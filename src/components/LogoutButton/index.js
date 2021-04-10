@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
+  TouchableOpacity,
   View,
 } from 'react-native';
 
@@ -62,13 +63,13 @@ export default () => {
         </View>
       </Modal>
 
-      <TouchableHighlight
+      <TouchableOpacity
         onPress={() => {
           setModalVisible(true);
         }}
       >
-        <SimpleLineIcons name="logout" size={24} color="black" />
-      </TouchableHighlight>
+        <SimpleLineIcons name="logout" size={34} color="black" />
+      </TouchableOpacity>
     </View>
   );
 };
