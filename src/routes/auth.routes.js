@@ -9,7 +9,16 @@ const { Navigator, Screen } = createStackNavigator();
 
 const AuthRoutes = () => {
   return (
-    <Navigator initialRouteName="Preload">
+    <Navigator
+      initialRouteName="Preload"
+      screenOptions={{
+        headerTintColor: '#fff',
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          fontFamily: 'Poppins_400Regular',
+        },
+      }}
+    >
       <Screen
         options={{ headerShown: false }}
         name="Preload"
@@ -23,10 +32,9 @@ const AuthRoutes = () => {
       <Screen
         options={{
           headerTitle: 'Olá, tudo bem? ✌ ',
-          headerTitleAlign: 'center',
           headerStyle: {
-            backgroundColor: '#a9a8f6',
-            elevation: 1,
+            backgroundColor: `${Colors.purple1}`,
+            elevation: 0,
           },
           headerRight: () => <LogoutButton />,
         }}
@@ -36,7 +44,6 @@ const AuthRoutes = () => {
       <Screen
         options={{
           title: 'Crie sua conta',
-          headerTitleAlign: 'center',
           headerTintColor: `${Colors.darkPink}`,
         }}
         name="Register"

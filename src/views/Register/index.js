@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '~/services/api';
+import { useNavigation } from '@react-navigation/native';
 import { useStateValue } from '~/context/StateContext';
-import { useNavigation } from '@react-navigation/stack';
 
 import * as Style from './styles';
 

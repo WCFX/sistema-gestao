@@ -9,11 +9,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import Colors from '~/colors';
 
 import { SallySvg } from '~/assets/svg';
 
 import api from '~/services/api';
-import { SimpleLineIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 export default () => {
@@ -57,7 +58,7 @@ export default () => {
             </TouchableHighlight>
           </View>
         </View>
-        <View style={{ backgroundColor: '#a9a8f6' }}>
+        <View style={{ backgroundColor: `${Colors.purple1}` }}>
           <SallySvg height="400" width="400" />
           <View style={{ marginBottom: 500 }} />
         </View>
@@ -68,7 +69,7 @@ export default () => {
           setModalVisible(true);
         }}
       >
-        <SimpleLineIcons name="logout" size={34} color="black" />
+        <Ionicons name="exit-outline" size={34} color="#f9f9f9" />
       </TouchableOpacity>
     </View>
   );
