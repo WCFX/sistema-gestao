@@ -31,4 +31,4 @@ function Sally(props) {
     </Svg>
   );
 }
-export default Sally;
+export default React.memo(Sally);

@@ -7,18 +7,18 @@ export const Container = styled.View`
   background-color: ${Colors.purple1};
 `;
 
-export const Title = styled.Text`
-  margin: 20px;
+export const Scroller = styled.ScrollView`
+  flex: 1;
+  padding: 20px;
 `;
 
-export const ButtonLogout = styled.TouchableOpacity`
-  width: 150px;
-  border: 2px solid red;
-  border-radius: 18px;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
+export const AreaText = styled.View`
+  width: 100%;
+  height: 300px;
 `;
-export const ButtonLogoutText = styled.Text`
+
+export const Title = styled.Text`
   font-size: 18px;
+  font-family: Poppins_400Regular;
+  color: ${Colors.blue3};
 `;
