@@ -1,5 +1,6 @@
 export default {
   pink: '#ffb9b9',
+  white: '#fff',
   darkPink: '#f09797',
   acquablue: '#0df5e3',
   blue1: '#423c6c',
