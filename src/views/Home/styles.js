@@ -22,3 +22,20 @@ export const Title = styled.Text`
   font-family: Poppins_400Regular;
   color: ${Colors.blue3};
 `;
+
+export const PropertyList = styled.View`
+  margin: 20px 0;
+`;
+
+export const ButtonArea = styled.TouchableOpacity`
+  background-color: ${Colors.white};
+  border: 1px solid ${Colors.grey};
+  border-radius: 20px;
+  padding: 15px;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+
+export const ButtonText = styled.Text`
+  font-family: Archivo_600SemiBold;
+`;

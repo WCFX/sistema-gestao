@@ -14,9 +14,31 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const checkProperty = async () => {};
+    const checkProperty = async () => {
+      let property = await AsyncStorage.getItem('property');
+      if (property) {
+        property = JSON.parse(property);
+      }
+      setLoading(false);
+    };
     checkProperty;
   }, []);
+
+  const chooseProperty = async (property) => {
+    await AsyncStorage.setItem('property', JSON.stringify(property));
+
+    dispatch({
+      type: 'SET_PROPERTY',
+      payload: {
+        property,
+      },
+    });
+
+    navigation.reset({
+      index: 1,
+      routes: [{ name: 'MainDrawer' }],
+    });
+  };
 
   return (
     <Style.Container>
@@ -27,6 +49,14 @@ const Home = () => {
           <>
             <Style.Title>Olá {context.user.user.name}</Style.Title>
             <Style.Title>Escolha uma das suas propriedades</Style.Title>
+
+            <Style.PropertyList>
+              {context.user.user.properties.map((item, index) => (
+                <Style.ButtonArea key={index} onPress={chooseProperty}>
+                  <Style.ButtonText>{item.name}</Style.ButtonText>
+                </Style.ButtonArea>
+              ))}
+            </Style.PropertyList>
           </>
         )}
         {!loading && context.user.user.properties.length <= 0 && (
