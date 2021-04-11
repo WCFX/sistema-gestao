@@ -4,6 +4,7 @@ import { useStateValue } from '~/context/StateContext';
 import Colors from '~/colors';
 
 import * as View from '~/views';
+import { DrawerContainer } from '~/components';
 
 const { Navigator, Screen } = createDrawerNavigator();
 
@@ -11,7 +12,10 @@ export default () => {
   const [context, dispatch] = useStateValue();
 
   return (
-    <Navigator screenOptions={{ headerShown: true }}>
+    <Navigator
+      drawerContent={(props) => <DrawerContainer {...props} />}
+      screenOptions={{ headerShown: true }}
+    >
       <Screen
         options={{
           headerTitle: `Olá, ${context.user.user.name}`,
