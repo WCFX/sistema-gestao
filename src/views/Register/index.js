@@ -49,7 +49,7 @@ const Register = () => {
           onChangeText={(t) => setName(t)}
         />
         <Style.Input
-          placeholder="Digite seu CPF"
+          placeholder="Digite o seu CPF"
           value={cpf}
           keyboardType="numeric"
           onChangeText={(t) => setCpf(t)}
