@@ -7,6 +7,8 @@ import * as Style from './styles';
 import { useStateValue } from '~/context/StateContext';
 import { SkypeIndicator } from 'react-native-indicators';
 
+import { DrawerContainer } from '~/components';
+
 import api from '~/services/api';
 
 const Home = () => {
@@ -18,6 +20,7 @@ const Home = () => {
     <Style.Container>
       <Style.Scroller>
         <SkypeIndicator color="#8863E6" size={84} />
+        <DrawerContainer />
       </Style.Scroller>
     </Style.Container>
   );
