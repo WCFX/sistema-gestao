@@ -21,7 +21,7 @@ const Home = () => {
       }
       setLoading(false);
     };
-    checkProperty;
+    checkProperty();
   }, []);
 
   const chooseProperty = async (property) => {
@@ -52,7 +52,10 @@ const Home = () => {
 
             <Style.PropertyList>
               {context.user.user.properties.map((item, index) => (
-                <Style.ButtonArea key={index} onPress={chooseProperty}>
+                <Style.ButtonArea
+                  key={index}
+                  onPress={() => chooseProperty(item)}
+                >
                   <Style.ButtonText>{item.name}</Style.ButtonText>
                 </Style.ButtonArea>
               ))}
