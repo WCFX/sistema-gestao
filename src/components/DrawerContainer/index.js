@@ -2,6 +2,9 @@ import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
+import Colors from '~/colors';
+
+import api from '~/services/api';
 
 import * as Style from './styles';
 
@@ -27,15 +30,44 @@ const DrawerContainer = (props) => {
     { title: 'Mural de avisos', icon: 'inbox', screen: 'Wall' },
     { title: 'Documentos', icon: 'file-text', screen: 'Documents' },
     { title: 'Reservas', icon: 'calendar', screen: 'Bookings' },
-    { title: 'Livro de Ocorrências', icon: 'bug', screen: 'OccurrenceBook' },
+    {
+      title: 'Livro de Ocorrências',
+      icon: 'bookmark',
+      screen: 'OccurrenceBook',
+    },
     { title: 'Achados e Perdidos', icon: 'search', screen: 'LostAndFound' },
     { title: 'Boletos', icon: 'wpforms', screen: 'Billet' },
-    { title: 'Perfil', icon: 'user', screen: 'Profile' },
+    { title: 'Perfil', icon: 'user-o', screen: 'Profile' },
   ];
+
+  const handleNavigateToNextScreen = () => {
+    navigation.navigate(item.screen);
+  };
+
+  const handleLogoutButton = async () => {
+    await api.logout();
+    navigation.reset({
+      index: 1,
+      routes: [{ name: 'Login' }],
+    });
+  };
 
   return (
     <Style.Container>
-      <Style.Scroller></Style.Scroller>
+      <Style.Scroller>
+        {drawerOptions.map((item, index) => (
+          <Style.MenuButton key={index} onPress={handleNavigateToNextScreen}>
+            <Style.MenuSquare></Style.MenuSquare>
+            <FontAwesome name={item.icon} size={20} color="#333" />
+            <Style.MenuButtonText>{item.title}</Style.MenuButtonText>
+          </Style.MenuButton>
+        ))}
+        <Style.MenuButton onPress={handleLogoutButton}>
+          <Style.MenuSquare></Style.MenuSquare>
+          <FontAwesome name="sign-out" size={20} color="#333" />
+          <Style.MenuButtonText>Sair</Style.MenuButtonText>
+        </Style.MenuButton>
+      </Style.Scroller>
 
       <Style.ChangeUnitArea>
         <Style.ChangeUnitButton onPress={handleChangeUnit}>

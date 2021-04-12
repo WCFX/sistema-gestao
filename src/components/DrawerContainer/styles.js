@@ -51,3 +51,20 @@ export const PropertyName = styled.Text`
 `;
 
 export const FooterUnitButton = styled.TouchableOpacity``;
+
+export const MenuButton = styled.TouchableOpacity`
+  flex-direction: row;
+  margin: 10px;
+  padding: 0 10px;
+`;
+export const MenuButtonText = styled.Text`
+  margin-left: 10px;
+  font-family: Poppins_400Regular;
+`;
+export const MenuSquare = styled.View`
+  width: 5px;
+  height: 35px;
+  margin-right: 20px;
+  background-color: transparent;
+  border-radius: 5px;
+`;
