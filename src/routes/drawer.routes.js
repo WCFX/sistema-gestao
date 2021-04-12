@@ -14,25 +14,22 @@ export default () => {
   return (
     <Navigator
       drawerContent={(props) => <DrawerContainer {...props} />}
-      screenOptions={{ headerShown: true }}
+      screenOptions={{
+        headerShown: true,
+        headerTitle: `Olá, ${context.user.user.name}`,
+        headerTitleAlign: 'center',
+        headerTintColor: `${Colors.blue4}`,
+        headerTitleStyle: {
+          fontFamily: 'Poppins_400Regular',
+          fontSize: 16,
+        },
+        headerStyle: {
+          backgroundColor: `${Colors.purple1}`,
+          elevation: 0,
+        },
+      }}
     >
-      <Screen
-        options={{
-          headerTitle: `Olá, ${context.user.user.name}`,
-          headerTitleAlign: 'center',
-          headerTintColor: `${Colors.blue4}`,
-          headerTitleStyle: {
-            fontFamily: 'Poppins_400Regular',
-            fontSize: 16,
-          },
-          headerStyle: {
-            backgroundColor: `${Colors.purple1}`,
-            elevation: 0,
-          },
-        }}
-        name="Wall"
-        component={View.Wall}
-      />
+      <Screen name="Wall" component={View.Wall} />
     </Navigator>
   );
 };

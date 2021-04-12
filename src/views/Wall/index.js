@@ -15,6 +15,26 @@ const Home = () => {
   const navigation = useNavigation();
   const [context, dispatch] = useStateValue();
   const [loading, setLoading] = useState(false);
+  const [wallList, setWallList] = useState([]);
+
+  useEffect(() => {
+    navigation.setOptions = {
+      HeaderTitle: 'Mural de Avisos',
+    };
+    getWall();
+  }, []);
+
+  const getWall = async () => {
+    setLoading(true);
+    const result = await api.getWall();
+    setLoading(false);
+
+    if (result.error === '') {
+      setWallList(result.list);
+    } else {
+      alert(result.error);
+    }
+  };
 
   return (
     <Style.Container>
