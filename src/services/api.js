@@ -62,4 +62,9 @@ export default {
     });
     return json;
   },
+  getWall: async () => {
+    let token = await AsyncStorage.getItem('token');
+    let json = await request('get', '/walls', {}, token);
+    return json;
+  },
 };
