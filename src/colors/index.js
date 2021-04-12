@@ -13,6 +13,6 @@ export default {
   darkGrey: '#555',
   purple1: '#221c35',
   purple2: '#8962ea',
-  black: '#151515',
+  black: '#222',
   red: '#f5334a',
 };

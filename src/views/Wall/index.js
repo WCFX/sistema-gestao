@@ -20,7 +20,6 @@ const Home = () => {
     <Style.Container>
       <Style.Scroller>
         <SkypeIndicator color="#8863E6" size={84} />
-        <DrawerContainer />
       </Style.Scroller>
     </Style.Container>
   );
