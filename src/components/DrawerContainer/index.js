@@ -23,7 +23,7 @@ const DrawerContainer = (props) => {
     });
   };
 
-  const menu = [
+  const drawerOptions = [
     { title: 'Mural de avisos', icon: 'inbox', screen: 'Wall' },
     { title: 'Documentos', icon: 'file-text', screen: 'Documents' },
     { title: 'Reservas', icon: 'calendar', screen: 'Bookings' },
