@@ -2,7 +2,6 @@ import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
-import Colors from '~/colors';
 
 import api from '~/services/api';
 
@@ -40,10 +39,6 @@ const DrawerContainer = (props) => {
     { title: 'Perfil', icon: 'user-o', screen: 'Profile' },
   ];
 
-  const handleNavigateToNextScreen = () => {
-    navigation.navigate(item.screen);
-  };
-
   const handleLogoutButton = async () => {
     await api.logout();
     navigation.reset({
@@ -56,7 +51,10 @@ const DrawerContainer = (props) => {
     <Style.Container>
       <Style.Scroller>
         {drawerOptions.map((item, index) => (
-          <Style.MenuButton key={index} onPress={handleNavigateToNextScreen}>
+          <Style.MenuButton
+            key={index}
+            onPress={() => navigation.navigate(item.screen)}
+          >
             <Style.MenuSquare></Style.MenuSquare>
             <FontAwesome name={item.icon} size={20} color="#333" />
             <Style.MenuButtonText>{item.title}</Style.MenuButtonText>

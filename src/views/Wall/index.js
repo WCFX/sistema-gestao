@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Text } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import * as Style from './styles';
 
 import { useStateValue } from '~/context/StateContext';
 import { SkypeIndicator } from 'react-native-indicators';
 
-import { DrawerContainer } from '~/components';
-
 import api from '~/services/api';
 
-const Home = () => {
+const Wall = () => {
   const navigation = useNavigation();
-  const [context, dispatch] = useStateValue();
-  const [loading, setLoading] = useState(false);
   const [wallList, setWallList] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+  const [context, dispatch] = useStateValue();
+
   useEffect(() => {
-    navigation.setOptions = {
-      HeaderTitle: 'Mural de Avisos',
-    };
+    navigation.setOptions({
+      headerTitle: 'Mural de Avisos',
+    });
     getWall();
   }, []);
 
@@ -38,11 +35,15 @@ const Home = () => {
 
   return (
     <Style.Container>
-      <Style.Scroller>
-        <SkypeIndicator color="#8863E6" size={84} />
-      </Style.Scroller>
+      {loading && <SkypeIndicator color="#8863E6" size={84} />}
+
+      {!loading && wallList.length === 0 && (
+        <Style.NoListArea>
+          <Style.NoListText>Não há avisos para você.</Style.NoListText>
+        </Style.NoListArea>
+      )}
     </Style.Container>
   );
 };
 
-export default Home;
+export default Wall;

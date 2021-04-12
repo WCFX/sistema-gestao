@@ -16,7 +16,6 @@ export default () => {
       drawerContent={(props) => <DrawerContainer {...props} />}
       screenOptions={{
         headerShown: true,
-        headerTitle: `Olá, ${context.user.user.name}`,
         headerTitleAlign: 'center',
         headerTintColor: `${Colors.blue4}`,
         headerTitleStyle: {
